@@ -8,15 +8,14 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    // menampilkan semua produk
+
     public function index(Request $request)
     {
         $query = Product::with(['user', 'category'])
-            ->withCount('orderItems') // jumlah order item
-            ->withAvg('reviews', 'rating') // hitung rata-rata rating
+            ->withCount('orderItems')
+            ->withAvg('reviews', 'rating')
             ->where('is_available', true);
 
-        // Search by nama product atau nama user
         if ($request->filled('search')) {
             $search = $request->search;
             $query->where(function ($q) use ($search) {
@@ -27,19 +26,17 @@ class ProductController extends Controller
             });
         }
 
-        // Filter by kategori
+
         if ($request->filled('category')) {
             $query->whereHas('category', function ($q) use ($request) {
                 $q->where('nama_kategori', $request->category);
             });
         }
 
-        // Filter by urutan / sorting
-        // Filter by urutan / sorting
         if ($request->filled('sort') && $request->sort == 'rating') {
-            $query->orderByDesc('reviews_avg_rating'); // rating tertinggi
+            $query->orderByDesc('reviews_avg_rating');
         } else {
-            $query->orderByDesc('order_items_count'); // default: terbanyak dibeli
+            $query->orderByDesc('order_items_count');
         }
 
 
@@ -52,7 +49,7 @@ class ProductController extends Controller
 
 
 
-    // Menampilkan detail produk
+
     public function show($id)
     {
         $product = Product::with('user', 'category')->findOrFail($id);

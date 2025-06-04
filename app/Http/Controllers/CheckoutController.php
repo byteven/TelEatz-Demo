@@ -29,7 +29,7 @@ class CheckoutController extends Controller
             return back()->with('error', 'Cart kosong.');
         }
 
-        // Group berdasarkan seller_id dari produk
+
         $grouped = $cart->cart_items->groupBy(function ($item) {
             return $item->product->seller_id;
         });
@@ -37,28 +37,28 @@ class CheckoutController extends Controller
         foreach ($grouped as $sellerId => $items) {
             $totalHarga = 0;
 
-            // Hitung total harga untuk seller ini
+
             foreach ($items as $item) {
                 $totalHarga += $item->product->price * $item->quantity;
             }
 
-            // Buat order per seller
+
             $order = Order::create([
                 'buyer_id' => $user->id,
                 'seller_id' => $sellerId,
-                'total_price' => $totalHarga, // Ganti ke total_price
+                'total_price' => $totalHarga,
                 'status' => 'pending',
                 'dine_option' => $request->dine_option,
                 'payment' => $request->payment,
             ]);
 
-            // Simpan order items
+
             foreach ($items as $item) {
                 OrderItem::create([
                     'order_id' => $order->id,
                     'product_id' => $item->product_id,
                     'quantity' => $item->quantity,
-                    'price' => $item->product->price, // Tambahkan harga produk di saat checkout
+                    'price' => $item->product->price,
                 ]);
             }
         }

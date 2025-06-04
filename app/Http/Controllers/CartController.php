@@ -14,9 +14,9 @@ class CartController extends Controller
 {
     public function index()
     {
-        $userId = Auth::id(); // << otomatis pakai user yang login
+        $userId = Auth::id();
 
-        $cartItems = CartItem::with(['product.user']) // load product dan user (seller)
+        $cartItems = CartItem::with(['product.user'])
             ->whereHas('cart', function ($query) use ($userId) {
                 $query->where('buyer_id', $userId);
             })
@@ -54,7 +54,7 @@ class CartController extends Controller
             'quantity' => 'required|integer|min:1',
         ]);
 
-        $userId = Auth::id(); // << otomatis pakai user yang login
+        $userId = Auth::id();
         $productId = $request->product_id;
         $quantity = $request->quantity;
 
@@ -64,24 +64,21 @@ class CartController extends Controller
             ['buyer_id' => $userId]
         );
 
-        // Cek apakah produk ini sudah ada di cart_item
         $cartItem = CartItem::where('cart_id', $cart->id)
             ->where('product_id', $productId)
             ->first();
 
         if ($cartItem) {
-            // Kalau sudah ada, tambahkan quantity
             $cartItem->quantity += $quantity;
             $cartItem->save();
         } else {
-            // Kalau belum ada, buat baru
-            $product = Product::findOrFail($productId);
 
+            $product = Product::findOrFail($productId);
             CartItem::create([
                 'cart_id' => $cart->id,
                 'product_id' => $productId,
                 'quantity' => $quantity,
-                'harga' => $product->harga, // tambahkan baris ini
+                'harga' => $product->harga,
             ]);
         }
 
@@ -103,7 +100,7 @@ class CartController extends Controller
                 ->firstOrFail();
 
             $item->quantity = $request->quantity;
-            $item->notes = $request->notes; // simpan catatan
+            $item->notes = $request->notes; 
             $item->harga = $item->product->harga * $request->quantity;
             $item->save();
 

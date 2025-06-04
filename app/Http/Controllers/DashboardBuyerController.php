@@ -16,7 +16,6 @@ class DashboardBuyerController extends Controller
     {
         $user = auth()->user();
 
-        // Ambil pesanan aktif
         $activeOrders = Order::with(['orderItems.product'])
             ->where('buyer_id', $user->id)
             ->whereIn('status', ['pending', 'diproses'])
@@ -28,7 +27,6 @@ class DashboardBuyerController extends Controller
             return $order->orderItems->count();
         });
 
-        // Produk: hanya hitung order items yang status order-nya 'diproses'
         $query = Product::with(['user', 'category', 'reviews'])
             ->withCount([
                 'orderItems as order_items_count' => function ($query) {
@@ -58,7 +56,7 @@ class DashboardBuyerController extends Controller
 
         $categories = Category::all();
 
-        $products = $query->take(4)->get(); // maksimal 4 produk
+        $products = $query->take(4)->get();
 
         $query = Product::with(['user', 'category', 'reviews'])
             ->withCount([
@@ -70,7 +68,7 @@ class DashboardBuyerController extends Controller
             ])
             ->where('is_available', true)
             ->whereHas('user', function ($q) {
-                $q->where('is_open', true); // Hanya toko yang sedang buka
+                $q->where('is_open', true);
             })
             ->orderByDesc('order_items_count');
 

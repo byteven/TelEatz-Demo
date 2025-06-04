@@ -79,20 +79,16 @@ class UserController extends Controller
             'email' => 'required|email|unique:users,email,' . $user->id,
             'role' => 'required|in:admin,seller,buyer',
             'password' => 'nullable|min:6',
-            'verified' => 'nullable|boolean', // untuk checkbox
+            'verified' => 'nullable|boolean',
         ]);
 
-        // Update field dasar
         $user->name = $validated['name'];
         $user->email = $validated['email'];
         $user->role = $validated['role'];
-
-        // Update password jika diberikan
         if (!empty($validated['password'])) {
             $user->password = bcrypt($validated['password']);
         }
 
-        // Update status verifikasi
         if ($request->has('verified') && $validated['verified']) {
             $user->email_verified_at = now();
         } else {
@@ -107,17 +103,17 @@ class UserController extends Controller
 
     public function destroy(User $user)
     {
-        // Cek apakah user adalah buyer dan punya pesanan yang sedang diproses
+        // Cek punya pesanan yang sedang diproses atau tidaks
         $hasProcessingOrderAsBuyer = DB::table('orders')
             ->where('buyer_id', $user->id)
             ->where('status', 'diproses')
             ->exists();
 
-        // Cek apakah user adalah seller dan ada produk miliknya yang masuk dalam order yang belum selesai
+        // Cek user == seller dan ada produk miliknya yang masuk dalam order yang belum selesai?????
         $hasProcessingOrderAsSeller = DB::table('orders')
             ->join('order_items', 'orders.id', '=', 'order_items.order_id')
             ->join('products', 'order_items.product_id', '=', 'products.id')
-            ->where('products.seller_id', $user->id) // pastikan kolom seller_id sesuai dengan skema kamu
+            ->where('products.seller_id', $user->id)
             ->whereIn('orders.status', ['pending', 'diproses'])
             ->exists();
 
@@ -129,29 +125,18 @@ class UserController extends Controller
 
 
         if ($user->email_verified_at) {
-            // User sudah verified → soft delete
-
-            // Update is_open dan email null
             $user->is_open = false;
             $user->email = null;
             $user->save();
 
-            // Set produk user jadi tidak tersedia
             $user->products()->update(['is_available' => false]);
-
-            // Soft delete user
             $user->delete();
 
             $message = 'User verified berhasil dihapus, produk dinonaktifkan.';
+
         } else {
-            // User belum verified → hapus permanen
-
-            // Hapus semua produk user permanen
             $user->products()->delete();
-
-            // Hapus user permanen
             $user->forceDelete();
-
             $message = 'User not verified telah dihapus permanen.';
         }
 

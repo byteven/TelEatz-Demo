@@ -27,7 +27,7 @@ class OrderController extends Controller
             ->orderBy('created_at', 'desc')
             ->get();
 
-        // Hitung jumlah per status
+
         $statusCounts = [
             'all' => Order::where('buyer_id', $userId)->count(),
             'pending' => Order::where('buyer_id', $userId)->where('status', 'pending')->count(),
@@ -58,7 +58,6 @@ class OrderController extends Controller
 
         // Group by seller_id dari produk
         $grouped = $cart->cart_items->groupBy(function ($item) {
-            // Ambil langsung dari DB agar pasti ada
             return Product::find($item->product_id)->seller_id;
         });
 
@@ -98,11 +97,9 @@ class OrderController extends Controller
                 ]);
             }
 
-            // update total_price setelah loop
             $order->update(['total_price' => $totalHarga]);
         }
 
-        // Hapus cart dan item-nya
         $cart->cart_items()->delete();
         $cart->delete();
 

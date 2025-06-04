@@ -58,7 +58,7 @@ class ReviewController extends Controller
         }
 
         $makanan = $makanan->get();
-        $categories = Category::all(); // ambil semua kategori dari DB
+        $categories = Category::all(); 
         return view('seller.Review.review', compact('makanan', 'categories'));
     }
 

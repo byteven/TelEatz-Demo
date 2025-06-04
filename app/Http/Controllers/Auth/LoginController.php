@@ -26,7 +26,7 @@ class LoginController extends Controller
             }
         }
 
-        return view('auth.login'); // Sesuaikan dengan view login kamu
+        return view('auth.login');
     }
 
 
@@ -45,13 +45,12 @@ class LoginController extends Controller
 
             $user = Auth::user();
 
-            // Cek apakah email sudah diverifikasi
             if (is_null($user->email_verified_at)) {
-                Auth::logout(); // logout user jika belum verifikasi
+                Auth::logout();
                 return back()->with('error', 'Email kamu belum terverifikasi!');
             }
 
-            // Redirect berdasarkan role
+            // Redirect by role
             switch ($user->role) {
                 case 'buyer':
                     return redirect()->route('buyer.dashboard')->with('justsuccess', 'Kamu berhasil login!');
@@ -60,7 +59,7 @@ class LoginController extends Controller
                 case 'admin':
                     return redirect()->route('admin.dashboard')->with('justsuccess', 'Selamat datang, Admin!');
                 default:
-                    Auth::logout(); // jika role tidak dikenali
+                    Auth::logout();
                     return back()->with('error', 'Akun kamu tidak memiliki akses.');
             }
         }
@@ -72,10 +71,10 @@ class LoginController extends Controller
     public function logout(Request $request)
     {
 
-        $user = User::find(Auth::id()); // ambil ulang instance model
+        $user = User::find(Auth::id());
 
         if ($user) {
-            $user->last_logout_at = now(); // simpan waktu logout
+            $user->last_logout_at = now(); 
             $user->save();
         }
 
