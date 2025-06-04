@@ -6,7 +6,7 @@
     <link rel="shortcut icon" href="img/yv2.png" type="image/x-icon">
     <title>Register Page</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <link rel="stylesheet" href="{{ secure_asset('css/login.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/login.css') }}">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -107,7 +107,7 @@
                             <span class="text-danger small mt-1 ms-1" style="font-size: 11px">
                                 {{ $errors->first('g-recaptcha-response') }}
                             </span>
-                        
+
                         @endif
                     </div>
 
