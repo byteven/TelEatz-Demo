@@ -34,7 +34,7 @@ class KelolaMakananController extends Controller
 
         $makanan = $makanan->get();
         $categories = Category::all(); // ambil semua kategori dari DB
-        
+
         return view('seller.KelolaMakanan.KelolaMakanan_seller', compact('makanan', 'categories'));
     }
 
@@ -93,7 +93,8 @@ class KelolaMakananController extends Controller
     public function edit($id)
     {
         $makanan = Product::find($id);
-        return view('seller.KelolaMakanan.KelolaMakanan_edit', compact('makanan'));
+        $categories = Category::all();
+        return view('seller.KelolaMakanan.KelolaMakanan_edit', compact('makanan', 'categories'));
     }
 
     public function update(Request $request, $id)
@@ -117,6 +118,7 @@ class KelolaMakananController extends Controller
             $makanan->harga = $request->harga;
             $makanan->deskripsi = $request->deskripsi;
             $makanan->is_available = $request->is_available;
+            $makanan->category_id = $request->category_id;
             $makanan->updated_at = now();
 
             // Jika ada gambar baru, simpan gambar

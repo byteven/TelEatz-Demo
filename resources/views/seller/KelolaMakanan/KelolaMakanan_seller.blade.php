@@ -104,7 +104,7 @@
                                         <p class="card-text">{{ Str::limit($item->deskripsi, 100) }}...</p>
                                         <br>
                                         <label for="kategori">Kategori</label>
-                                        <p class="card-text"> {{ $product->category?->nama_kategori ?? '-' }}</p>
+                                        <p class="card-text"> {{ $item->category?->nama_kategori ?? 'Belum Menentukan' }}</p>
                                         <br>
                                         <label for="ketersediaan">Ketersediaan</label>
                                         <p class="card-text">
