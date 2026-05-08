@@ -128,10 +128,22 @@
                                                         <textarea class="form-control form-control-sm" name="notes" id="notes_{{ $item->id }}" placeholder="Catatan: ..."
                                                             rows="1" style="resize: none; overflow: hidden;" onchange="this.form.submit()">{{ $item->notes }}</textarea>
 
-                                                        <input type="number" name="quantity" min="1"
+                                                        <input type="number" name="quantity" min="1" max="50"
                                                             value="{{ $item->quantity }}"
                                                             class="form-control form-control-sm" style="width: 70px;"
-                                                            onchange="this.form.submit()">
+                                                            onchange="if(this.value > 50) { 
+                                                                Swal.fire({
+                                                                    icon: 'warning',
+                                                                    title: 'Batas Maksimal',
+                                                                    text: 'Item produk melebihi batas wajar pembelian stok'
+                                                                });
+                                                                this.value = 50;
+                                                                this.form.submit();
+                                                            } else { 
+                                                                this.form.submit(); 
+                                                            }">
+
+
                                                     </form>
                                                 @else
                                                     <div class="form-control form-control-sm bg-light text-muted d-flex align-items-center"

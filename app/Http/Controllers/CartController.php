@@ -51,7 +51,7 @@ class CartController extends Controller
     {
         $request->validate([
             'product_id' => 'required|exists:products,id',
-            'quantity' => 'required|integer|min:1',
+            'quantity' => 'required|integer|min:1|max:50',
         ]);
 
         $userId = Auth::id();
@@ -69,7 +69,11 @@ class CartController extends Controller
             ->first();
 
         if ($cartItem) {
-            $cartItem->quantity += $quantity;
+            $newQuantity = $cartItem->quantity + $quantity;
+            if ($newQuantity > 50) {
+                return redirect()->back()->with('error', 'Item produk melebihi batas wajar pembelian stok (Maksimal 50)');
+            }
+            $cartItem->quantity = $newQuantity;
             $cartItem->save();
         } else {
 
@@ -89,7 +93,7 @@ class CartController extends Controller
     {
         try {
             $request->validate([
-                'quantity' => 'required|integer|min:1',
+                'quantity' => 'required|integer|min:1|max:50',
                 'notes' => 'nullable|string|max:255',
             ]);
 

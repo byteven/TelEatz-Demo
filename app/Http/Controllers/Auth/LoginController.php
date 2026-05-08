@@ -74,7 +74,7 @@ class LoginController extends Controller
         $user = User::find(Auth::id());
 
         if ($user) {
-            $user->last_logout_at = now(); 
+            $user->last_logout_at = now();
             $user->save();
         }
 

@@ -161,11 +161,20 @@
                                         <h6 class="card-text fw-bold mt-1 mb-2 text-danger mt-2 mb-2">Rp
                                             {{ number_format($product->harga, 0, ',', '.') }}</h6>
                                         <div class="cart-section d-flex align-items-center justify-content-end">
-                                            <form action="{{ route('buyer.keranjang.store') }}" method="POST">
+                                            <form action="{{ route('buyer.keranjang.store') }}" method="POST" onsubmit="if(this.quantity.value > 50) { 
+                                                Swal.fire({
+                                                    icon: 'warning',
+                                                    title: 'Batas Maksimal',
+                                                    text: 'Item produk melebihi batas wajar pembelian stok'
+                                                }); 
+                                                return false; 
+                                            }">
+
                                                 @csrf
                                                 <input type="hidden" name="product_id" value="{{ $product->id }}">
                                                 <div class="addtocart d-flex gap-2 align-items-center justify-content-end">
-                                                    <input type="number" name="quantity" value="1" min="1"
+                                                    <input type="number" name="quantity" value="1" min="1" max="50"
+
                                                         class="form-control" style="width: 65px;"
                                                         {{ $product->user?->is_open ? '' : 'disabled' }}>
 
