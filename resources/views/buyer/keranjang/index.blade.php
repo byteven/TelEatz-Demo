@@ -128,20 +128,10 @@
                                                         <textarea class="form-control form-control-sm" name="notes" id="notes_{{ $item->id }}" placeholder="Catatan: ..."
                                                             rows="1" style="resize: none; overflow: hidden;" onchange="this.form.submit()">{{ $item->notes }}</textarea>
 
-                                                        <input type="number" name="quantity" min="1" max="50"
+                                                        <input type="number" name="quantity" min="1"
                                                             value="{{ $item->quantity }}"
                                                             class="form-control form-control-sm" style="width: 70px;"
-                                                            onchange="if(this.value > 50) { 
-                                                                Swal.fire({
-                                                                    icon: 'warning',
-                                                                    title: 'Batas Maksimal',
-                                                                    text: 'Item produk melebihi batas wajar pembelian stok'
-                                                                });
-                                                                this.value = 50;
-                                                                this.form.submit();
-                                                            } else { 
-                                                                this.form.submit(); 
-                                                            }">
+                                                            onchange="this.form.submit()">
 
 
                                                     </form>

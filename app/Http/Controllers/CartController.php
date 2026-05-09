@@ -24,7 +24,7 @@ class CartController extends Controller
 
         // Hitung total harga
         $total = $cartItems->sum(function ($cartItem) {
-            return $cartItem->quantity * $cartItem->product->price;
+            return $cartItem->quantity * $cartItem->product->harga;
         });
 
         // Group cartItems berdasarkan seller_id
@@ -51,7 +51,7 @@ class CartController extends Controller
     {
         $request->validate([
             'product_id' => 'required|exists:products,id',
-            'quantity' => 'required|integer|min:1|max:50',
+            'quantity' => 'required|integer|min:1',
         ]);
 
         $userId = Auth::id();
@@ -69,11 +69,7 @@ class CartController extends Controller
             ->first();
 
         if ($cartItem) {
-            $newQuantity = $cartItem->quantity + $quantity;
-            if ($newQuantity > 50) {
-                return redirect()->back()->with('error', 'Item produk melebihi batas wajar pembelian stok (Maksimal 50)');
-            }
-            $cartItem->quantity = $newQuantity;
+            $cartItem->quantity += $quantity;
             $cartItem->save();
         } else {
 
@@ -93,7 +89,7 @@ class CartController extends Controller
     {
         try {
             $request->validate([
-                'quantity' => 'required|integer|min:1|max:50',
+                'quantity' => 'required|integer|min:1',
                 'notes' => 'nullable|string|max:255',
             ]);
 
@@ -105,10 +101,12 @@ class CartController extends Controller
 
             $item->quantity = $request->quantity;
             $item->notes = $request->notes; 
-            $item->harga = $item->product->harga * $request->quantity;
+            $item->harga = $item->product->harga;
             $item->save();
 
             return redirect()->back()->with('justsuccess', 'Keranjang diperbarui!');
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            return redirect()->back()->with('error', $e->validator->errors()->first());
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
         }
