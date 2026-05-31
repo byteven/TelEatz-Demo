@@ -281,6 +281,7 @@
             <p>© <span>Copyright</span> <strong class="px-1 sitename">TelEatz</strong> <span>All Rights
                     Reserved</span>
             </p>
+            <p class="mt-2 text-muted" style="font-size: 12px; opacity: 0.75;">Served from: <span class="badge bg-secondary font-monospace">{{ gethostname() }}</span></p>
             <div class="credits">
             </div>
         </div>
