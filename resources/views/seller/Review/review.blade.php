@@ -66,8 +66,7 @@
                             class="card-body card-nothings bg-light p-5 d-flex justify-content-center align-items-center flex-column">
                             <img class="img-fluid" src="{{ asset('img/nothing.svg') }}" width="200" alt="">
                             <h2 class="fw-bold fs-4 mt-3" style="color:var(--darkt);">Halaman Kelola Makanan</h2>
-                            <small class="text-secondary fw-bold" style="font-size: 0.8rem;">Sepertinya Kamu Belum
-                                Menambahkan Apapun</small>
+                              <small class="text-secondary fw-bold" style="font-size: 0.8rem;">Sepertinya Kamu Belum Menambahkan Apapun</small>
                         </div>
                     </div>
                 @else
