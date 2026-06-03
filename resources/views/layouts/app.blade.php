@@ -17,7 +17,7 @@
     @yield('content')
 
     <div class="text-center py-3 text-muted" style="font-size: 12px; opacity: 0.75;">
-        Served from: <span class="badge bg-secondary font-monospace">{{ gethostname() }}</span>
+        <!-- Served from: <span class="badge bg-secondary font-monospace">{{ gethostname() }}</span> -->
     </div>
 
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
