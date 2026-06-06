@@ -6,7 +6,7 @@ use App\Http\Controllers\MakananController;
 use App\Http\Controllers\PesananController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProfileBuyerController;
-use App\Http\Controllers\reviewController;
+use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\Transaction;
 use Illuminate\Support\Facades\Route;
 
