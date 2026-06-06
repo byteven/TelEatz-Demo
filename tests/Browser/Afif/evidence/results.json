@@ -1,0 +1,178 @@
+{
+  "TC.AT.001.001": {
+    "id": "TC.AT.001.001",
+    "title": "TC.AT.001.001 - admin melihat daftar transaksi",
+    "status": "Pass",
+    "actualResult": "Admin berhasil membuka Daftar Transaksi dan melihat kartu transaksi berisi kedai, ID pesanan, serta item pesanan.",
+    "screenshot": "C:\\Users\\AFIF\\Documents\\GitHub\\TelEatz-Demo\\tests\\Browser\\Afif\\evidence\\screenshots\\TC.AT.001.001.png",
+    "evidence": "Screenshot: C:\\Users\\AFIF\\Documents\\GitHub\\TelEatz-Demo\\tests\\Browser\\Afif\\evidence\\screenshots\\TC.AT.001.001.png"
+  },
+  "TC.AT.001.002": {
+    "id": "TC.AT.001.002",
+    "title": "TC.AT.001.002 - admin melihat empty state saat belum ada transaksi",
+    "status": "Pass",
+    "actualResult": "Saat data transaksi kosong, halaman menampilkan empty state \"Histori Pesanan\" dan pesan belum ada pesanan.",
+    "screenshot": "C:\\Users\\AFIF\\Documents\\GitHub\\TelEatz-Demo\\tests\\Browser\\Afif\\evidence\\screenshots\\TC.AT.001.002.png",
+    "evidence": "Screenshot: C:\\Users\\AFIF\\Documents\\GitHub\\TelEatz-Demo\\tests\\Browser\\Afif\\evidence\\screenshots\\TC.AT.001.002.png"
+  },
+  "TC.AT.002.001": {
+    "id": "TC.AT.002.001",
+    "title": "TC.AT.002.001 - admin melihat detail transaksi utama",
+    "status": "Pass",
+    "actualResult": "Detail transaksi menampilkan status, harga x quantity, subtotal, metode pembayaran, dan dine option.",
+    "screenshot": "C:\\Users\\AFIF\\Documents\\GitHub\\TelEatz-Demo\\tests\\Browser\\Afif\\evidence\\screenshots\\TC.AT.002.001.png",
+    "evidence": "Screenshot: C:\\Users\\AFIF\\Documents\\GitHub\\TelEatz-Demo\\tests\\Browser\\Afif\\evidence\\screenshots\\TC.AT.002.001.png"
+  },
+  "TC.AT.002.002": {
+    "id": "TC.AT.002.002",
+    "title": "TC.AT.002.002 - admin membuka item tambahan pada transaksi multi item",
+    "status": "Pass",
+    "actualResult": "Tombol \"Tampilkan menu lainnya\" membuka collapse dan item tambahan \"Mie Ayam\" terlihat.",
+    "screenshot": "C:\\Users\\AFIF\\Documents\\GitHub\\TelEatz-Demo\\tests\\Browser\\Afif\\evidence\\screenshots\\TC.AT.002.002.png",
+    "evidence": "Screenshot: C:\\Users\\AFIF\\Documents\\GitHub\\TelEatz-Demo\\tests\\Browser\\Afif\\evidence\\screenshots\\TC.AT.002.002.png"
+  },
+  "TC.AT.002.003": {
+    "id": "TC.AT.002.003",
+    "title": "TC.AT.002.003 - admin melihat informasi review transaksi",
+    "status": "Pass",
+    "actualResult": "Bagian Review pada transaksi menampilkan komentar pembeli yang sudah tersimpan.",
+    "screenshot": "C:\\Users\\AFIF\\Documents\\GitHub\\TelEatz-Demo\\tests\\Browser\\Afif\\evidence\\screenshots\\TC.AT.002.003.png",
+    "evidence": "Screenshot: C:\\Users\\AFIF\\Documents\\GitHub\\TelEatz-Demo\\tests\\Browser\\Afif\\evidence\\screenshots\\TC.AT.002.003.png"
+  },
+  "TC.ATAC.001.001": {
+    "id": "TC.ATAC.001.001",
+    "title": "TC.ATAC.001.001 - buyer tidak dapat mengakses halaman admin transaksi",
+    "status": "Pass",
+    "actualResult": "Buyer diarahkan ke dashboard buyer saat membuka /admin/transaksi (http://127.0.0.1:8000/buyer/dashboard).",
+    "screenshot": "C:\\Users\\AFIF\\Documents\\GitHub\\TelEatz-Demo\\tests\\Browser\\Afif\\evidence\\screenshots\\TC.ATAC.001.001.png",
+    "evidence": "Screenshot: C:\\Users\\AFIF\\Documents\\GitHub\\TelEatz-Demo\\tests\\Browser\\Afif\\evidence\\screenshots\\TC.ATAC.001.001.png"
+  },
+  "TC.ATAC.001.002": {
+    "id": "TC.ATAC.001.002",
+    "title": "TC.ATAC.001.002 - seller tidak dapat mengakses halaman admin transaksi",
+    "status": "Pass",
+    "actualResult": "Seller diarahkan ke dashboard seller saat membuka /admin/transaksi (http://127.0.0.1:8000/seller/dashboard).",
+    "screenshot": "C:\\Users\\AFIF\\Documents\\GitHub\\TelEatz-Demo\\tests\\Browser\\Afif\\evidence\\screenshots\\TC.ATAC.001.002.png",
+    "evidence": "Screenshot: C:\\Users\\AFIF\\Documents\\GitHub\\TelEatz-Demo\\tests\\Browser\\Afif\\evidence\\screenshots\\TC.ATAC.001.002.png"
+  },
+  "TC.ATAC.001.003": {
+    "id": "TC.ATAC.001.003",
+    "title": "TC.ATAC.001.003 - guest diarahkan ke login saat mengakses halaman admin transaksi",
+    "status": "Pass",
+    "actualResult": "Guest diarahkan ke halaman login saat membuka /admin/transaksi (http://127.0.0.1:8000/login).",
+    "screenshot": "C:\\Users\\AFIF\\Documents\\GitHub\\TelEatz-Demo\\tests\\Browser\\Afif\\evidence\\screenshots\\TC.ATAC.001.003.png",
+    "evidence": "Screenshot: C:\\Users\\AFIF\\Documents\\GitHub\\TelEatz-Demo\\tests\\Browser\\Afif\\evidence\\screenshots\\TC.ATAC.001.003.png"
+  },
+  "TC.KU.006.001": {
+    "id": "TC.KU.006.001",
+    "title": "TC.KU.006.001 - admin mencari user berdasarkan nama",
+    "status": "Pass",
+    "actualResult": "Halaman Kelola User menampilkan user \"vio salman\" dan email \"vio@gmail.com\" setelah pencarian nama.",
+    "screenshot": "C:\\Users\\AFIF\\Documents\\GitHub\\TelEatz-Demo\\tests\\Browser\\Afif\\evidence\\screenshots\\TC.KU.006.001.png",
+    "evidence": "Screenshot: C:\\Users\\AFIF\\Documents\\GitHub\\TelEatz-Demo\\tests\\Browser\\Afif\\evidence\\screenshots\\TC.KU.006.001.png"
+  },
+  "TC.KU.006.002": {
+    "id": "TC.KU.006.002",
+    "title": "TC.KU.006.002 - admin mencari user berdasarkan email",
+    "status": "Pass",
+    "actualResult": "Halaman Kelola User menampilkan user \"Toko abc\" saat pencarian menggunakan email.",
+    "screenshot": "C:\\Users\\AFIF\\Documents\\GitHub\\TelEatz-Demo\\tests\\Browser\\Afif\\evidence\\screenshots\\TC.KU.006.002.png",
+    "evidence": "Screenshot: C:\\Users\\AFIF\\Documents\\GitHub\\TelEatz-Demo\\tests\\Browser\\Afif\\evidence\\screenshots\\TC.KU.006.002.png"
+  },
+  "TC.KU.006.003": {
+    "id": "TC.KU.006.003",
+    "title": "TC.KU.006.003 - admin mencari user yang tidak tersedia",
+    "status": "Pass",
+    "actualResult": "Halaman menampilkan pesan \"Tidak ada user terdaftar.\" untuk keyword yang tidak memiliki hasil.",
+    "screenshot": "C:\\Users\\AFIF\\Documents\\GitHub\\TelEatz-Demo\\tests\\Browser\\Afif\\evidence\\screenshots\\TC.KU.006.003.png",
+    "evidence": "Screenshot: C:\\Users\\AFIF\\Documents\\GitHub\\TelEatz-Demo\\tests\\Browser\\Afif\\evidence\\screenshots\\TC.KU.006.003.png"
+  },
+  "TC.KU.007.001": {
+    "id": "TC.KU.007.001",
+    "title": "TC.KU.007.001 - admin filter role buyer",
+    "status": "Pass",
+    "actualResult": "Filter role buyer aktif dan seluruh baris tabel yang tampil memiliki role buyer (4 baris).",
+    "screenshot": "C:\\Users\\AFIF\\Documents\\GitHub\\TelEatz-Demo\\tests\\Browser\\Afif\\evidence\\screenshots\\TC.KU.007.001.png",
+    "evidence": "Screenshot: C:\\Users\\AFIF\\Documents\\GitHub\\TelEatz-Demo\\tests\\Browser\\Afif\\evidence\\screenshots\\TC.KU.007.001.png"
+  },
+  "TC.KU.007.002": {
+    "id": "TC.KU.007.002",
+    "title": "TC.KU.007.002 - admin filter role seller",
+    "status": "Pass",
+    "actualResult": "Filter role seller aktif dan seluruh baris tabel yang tampil memiliki role seller (2 baris).",
+    "screenshot": "C:\\Users\\AFIF\\Documents\\GitHub\\TelEatz-Demo\\tests\\Browser\\Afif\\evidence\\screenshots\\TC.KU.007.002.png",
+    "evidence": "Screenshot: C:\\Users\\AFIF\\Documents\\GitHub\\TelEatz-Demo\\tests\\Browser\\Afif\\evidence\\screenshots\\TC.KU.007.002.png"
+  },
+  "TC.KU.008.001": {
+    "id": "TC.KU.008.001",
+    "title": "TC.KU.008.001 - admin filter user terverifikasi",
+    "status": "Pass",
+    "actualResult": "Filter status terverifikasi aktif dan seluruh baris tabel yang tampil berstatus Verified (7 baris).",
+    "screenshot": "C:\\Users\\AFIF\\Documents\\GitHub\\TelEatz-Demo\\tests\\Browser\\Afif\\evidence\\screenshots\\TC.KU.008.001.png",
+    "evidence": "Screenshot: C:\\Users\\AFIF\\Documents\\GitHub\\TelEatz-Demo\\tests\\Browser\\Afif\\evidence\\screenshots\\TC.KU.008.001.png"
+  },
+  "TC.KU.008.002": {
+    "id": "TC.KU.008.002",
+    "title": "TC.KU.008.002 - admin filter user belum verifikasi",
+    "status": "Pass",
+    "actualResult": "Filter status belum verifikasi aktif dan seluruh baris tabel yang tampil berstatus Not Verified (1 baris).",
+    "screenshot": "C:\\Users\\AFIF\\Documents\\GitHub\\TelEatz-Demo\\tests\\Browser\\Afif\\evidence\\screenshots\\TC.KU.008.002.png",
+    "evidence": "Screenshot: C:\\Users\\AFIF\\Documents\\GitHub\\TelEatz-Demo\\tests\\Browser\\Afif\\evidence\\screenshots\\TC.KU.008.002.png"
+  },
+  "TC.KU.009.001": {
+    "id": "TC.KU.009.001",
+    "title": "TC.KU.009.001 - admin reset filter dan search",
+    "status": "Pass",
+    "actualResult": "Tombol Reset menghapus parameter filter/search dan tabel kembali menampilkan user lintas role, termasuk admin dan seller.",
+    "screenshot": "C:\\Users\\AFIF\\Documents\\GitHub\\TelEatz-Demo\\tests\\Browser\\Afif\\evidence\\screenshots\\TC.KU.009.001.png",
+    "evidence": "Screenshot: C:\\Users\\AFIF\\Documents\\GitHub\\TelEatz-Demo\\tests\\Browser\\Afif\\evidence\\screenshots\\TC.KU.009.001.png"
+  },
+  "TC.LP.001.001": {
+    "id": "TC.LP.001.001",
+    "title": "TC.LP.001.001 - user mengakses landing page dari root URL",
+    "status": "Fail",
+    "actualResult": "Actual failure: The input did not match the regular expression /Tentang Kami/i. Input:\n\n'TelEatz\\n' +\n  '.\\n' +\n  'Home\\n' +\n  'About\\n' +\n  'Features\\n' +\n  'Login\\n' +\n  'Welcome to TelEatz!\\n' +\n  'Website E-Canteen yang diberi nama TelEatz, merupakan platform digital agar memudahkan anda saat melakukan pemesanan secara online, meilhat menu dari berbagai kedai.\\n' +\n  'Get Started\\n' +\n  'Lihat Makanan😍\\n' +\n  'Pesan Makanan😋\\n' +\n  'Makanan nasi goreng dengan bumbu rempah bawang-bawangan\\n' +\n  'Pesan Sekarang\\n' +\n  'Makanan Mie Ayam dengan bumbu rempah bawang-bawangan\\n' +\n  'Pesan Sekarang\\n' +\n  'Es buah yang sangat enak dengan buah buahan bergizi\\n' +\n  'Pesan Sekarang\\n' +\n  'Es Kocok dengan buah-buhanan yang sangat lezat dan bergizi\\n' +\n  'Pesan Sekarang\\n' +\n  'TelEatz\\n' +\n  'Website E-Canteen yang diberi nama TelEatz, merupakan platform digital agar memudahkan anda saat melakukan pemesanan secara online, melihat menu dari berbagai tenant, mengetahui ketersediaan makanan, dan juga melakukan pembayaran secara non-tunai dengan praktis.\\n' +\n  'Contact Us\\n' +\n  'Jl. Telekomunikasi No. 1, Bandung Terusan Buahbatu - Bojongsoang, Sukapura, Kec. Dayeuhkolot, Kabupaten Bandung, Jawa Barat 40257\\n' +\n  'Phone: +62 5589 55488 55\\n' +\n  'Email: telkom@university\\n' +\n  '© Copyright TelEatz All Rights Reserved\\n' +\n  'Served from: afif'\n",
+    "screenshot": "C:\\Users\\AFIF\\Documents\\GitHub\\TelEatz-Demo\\tests\\Browser\\Afif\\evidence\\screenshots\\TC.LP.001.001.png",
+    "evidence": "Screenshot: C:\\Users\\AFIF\\Documents\\GitHub\\TelEatz-Demo\\tests\\Browser\\Afif\\evidence\\screenshots\\TC.LP.001.001.png"
+  },
+  "TC.LP.001.002": {
+    "id": "TC.LP.001.002",
+    "title": "TC.LP.001.002 - route /landing redirect ke root landing page",
+    "status": "Pass",
+    "actualResult": "Route /landing berhasil redirect ke root landing page (http://127.0.0.1:8000/).",
+    "screenshot": "C:\\Users\\AFIF\\Documents\\GitHub\\TelEatz-Demo\\tests\\Browser\\Afif\\evidence\\screenshots\\TC.LP.001.002.png",
+    "evidence": "Screenshot: C:\\Users\\AFIF\\Documents\\GitHub\\TelEatz-Demo\\tests\\Browser\\Afif\\evidence\\screenshots\\TC.LP.001.002.png"
+  },
+  "TC.LP.002.001": {
+    "id": "TC.LP.002.001",
+    "title": "TC.LP.002.001 - navigasi Home About Features tersedia dan menuju section yang sesuai",
+    "status": "Pass",
+    "actualResult": "Link About dan Features pada navbar aktif dan mengarahkan user ke section landing page yang sesuai.",
+    "screenshot": "C:\\Users\\AFIF\\Documents\\GitHub\\TelEatz-Demo\\tests\\Browser\\Afif\\evidence\\screenshots\\TC.LP.002.001.png",
+    "evidence": "Screenshot: C:\\Users\\AFIF\\Documents\\GitHub\\TelEatz-Demo\\tests\\Browser\\Afif\\evidence\\screenshots\\TC.LP.002.001.png"
+  },
+  "TC.LP.002.002": {
+    "id": "TC.LP.002.002",
+    "title": "TC.LP.002.002 - tombol Login pada landing page membuka halaman login",
+    "status": "Pass",
+    "actualResult": "Tombol Login pada landing page membuka halaman login (http://127.0.0.1:8000/login).",
+    "screenshot": "C:\\Users\\AFIF\\Documents\\GitHub\\TelEatz-Demo\\tests\\Browser\\Afif\\evidence\\screenshots\\TC.LP.002.002.png",
+    "evidence": "Screenshot: C:\\Users\\AFIF\\Documents\\GitHub\\TelEatz-Demo\\tests\\Browser\\Afif\\evidence\\screenshots\\TC.LP.002.002.png"
+  },
+  "TC.LP.003.001": {
+    "id": "TC.LP.003.001",
+    "title": "TC.LP.003.001 - landing page menampilkan menu populer saat produk tersedia",
+    "status": "Fail",
+    "actualResult": "Actual failure: Expected page body to match /Menu Makanan Populer/i\nWait timed out after 10247ms",
+    "screenshot": "C:\\Users\\AFIF\\Documents\\GitHub\\TelEatz-Demo\\tests\\Browser\\Afif\\evidence\\screenshots\\TC.LP.003.001.png",
+    "evidence": "Screenshot: C:\\Users\\AFIF\\Documents\\GitHub\\TelEatz-Demo\\tests\\Browser\\Afif\\evidence\\screenshots\\TC.LP.003.001.png"
+  },
+  "TC.LP.003.002": {
+    "id": "TC.LP.003.002",
+    "title": "TC.LP.003.002 - landing page menampilkan empty state saat produk kosong",
+    "status": "Fail",
+    "actualResult": "Actual failure: The input did not match the regular expression /Menu Makanan Populer/i. Input:\n\n'TelEatz\\n' +\n  '.\\n' +\n  'Home\\n' +\n  'About\\n' +\n  'Features\\n' +\n  'Login\\n' +\n  'Belum ada produk tersedia.\\n' +\n  'TelEatz\\n' +\n  'Website E-Canteen yang diberi nama TelEatz, merupakan platform digital agar memudahkan anda saat melakukan pemesanan secara online, melihat menu dari berbagai tenant, mengetahui ketersediaan makanan, dan juga melakukan pembayaran secara non-tunai dengan praktis.\\n' +\n  'Contact Us\\n' +\n  'Jl. Telekomunikasi No. 1, Bandung Terusan Buahbatu - Bojongsoang, Sukapura, Kec. Dayeuhkolot, Kabupaten Bandung, Jawa Barat 40257\\n' +\n  'Phone: +62 5589 55488 55\\n' +\n  'Email: telkom@university\\n' +\n  '© Copyright TelEatz All Rights Reserved\\n' +\n  'Served from: afif'\n",
+    "screenshot": "C:\\Users\\AFIF\\Documents\\GitHub\\TelEatz-Demo\\tests\\Browser\\Afif\\evidence\\screenshots\\TC.LP.003.002.png",
+    "evidence": "Screenshot: C:\\Users\\AFIF\\Documents\\GitHub\\TelEatz-Demo\\tests\\Browser\\Afif\\evidence\\screenshots\\TC.LP.003.002.png"
+  }
+}
