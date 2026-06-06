@@ -3,13 +3,18 @@
     "type": "module",
     "scripts": {
         "build": "vite build",
-        "dev": "vite"
+        "dev": "vite",
+        "test:e2e": "mocha \"tests/Browser/**/*.spec.js\" --timeout 60000",
+        "test:e2e:afif": "mocha \"tests/Browser/Afif/*.spec.js\" --timeout 60000"
     },
     "devDependencies": {
         "@tailwindcss/vite": "^4.0.0",
         "axios": "^1.8.2",
+        "chromedriver": "^148.0.4",
         "concurrently": "^9.0.1",
         "laravel-vite-plugin": "^1.2.0",
+        "mocha": "^11.7.6",
+        "selenium-webdriver": "^4.44.0",
         "tailwindcss": "^4.0.0",
         "vite": "^6.2.4"
     }
