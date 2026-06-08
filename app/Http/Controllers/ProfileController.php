@@ -63,16 +63,18 @@ class ProfileController extends Controller
             // Jika ada gambar baru, simpan gambar
             if ($request->hasFile('img')) {
                 $file = $request->file('img');
-                $filename = time() . '.' . $file->getClientOriginalExtension();
-                $file->move(public_path('images'), $filename);
-                $profile->img = $filename;
+                $imageData = base64_encode(file_get_contents($file->getRealPath()));
+                $mimeType = $file->getClientMimeType();
+                $profile->img = 'data:' . $mimeType . ';base64,' . $imageData;
             }
 
-            $waktu_sekarang = Carbon::now();
-            if ($waktu_sekarang->between($request->close_time, $request->open_time)) {
-                $profile->is_open = 1; // buka
+            if ($request->open_time && $request->close_time) {
+                $waktu_sekarang = Carbon::now();
+                $open  = Carbon::createFromFormat('H:i', $request->open_time);
+                $close = Carbon::createFromFormat('H:i', $request->close_time);
+                $profile->is_open = $waktu_sekarang->between($open, $close) ? 1 : 0;
             } else {
-                $profile->is_open = 0; // tutup
+                $profile->is_open = 0;
             }
 
             $profile->save();

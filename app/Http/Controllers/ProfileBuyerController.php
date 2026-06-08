@@ -45,9 +45,9 @@ class ProfileBuyerController extends Controller
 
             if ($request->hasFile('img')) {
                 $file = $request->file('img');
-                $filename = time() . '.' . $file->getClientOriginalExtension();
-                $file->move(public_path('images'), $filename);
-                $profile->img = $filename;
+                $imageData = base64_encode(file_get_contents($file->getRealPath()));
+                $mimeType = $file->getClientMimeType();
+                $profile->img = 'data:' . $mimeType . ';base64,' . $imageData;
             }
 
 

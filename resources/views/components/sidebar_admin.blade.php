@@ -2,10 +2,10 @@
     <div class="card-body nav-dash d-flex flex-column text-decoration-none gap-3 ">
         <div class=" nav-2 sidebar-profile d-flex justify-content-start align-items-center py-3  px-3">
 
-            @if (Auth::check() && Auth::user()->profile_picture)
+            @if (Auth::check() && Auth::user()->img)
                 <img class="rounded-circle img-thumbnail shadow-lg"
-                    src="{{ asset('storage/profile_pictures/' . Auth::user()->profile_picture) }}" alt="Profil"
-                    width="50">
+                    src="{{ Auth::user()->img_url }}" alt="Profil"
+                    width="50" style="width: 50px; height: 50px; object-fit: cover;">
             @else
                 <div class="rounded-circle img-thumbnail shadow-lg"
                     style="width: 50px; height: 50px; display: flex; justify-content: center; align-items: center; background-color: #369a74;">

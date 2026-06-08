@@ -84,7 +84,7 @@
                                 <div class="card h-100 d-flex flex-column">
 
                                     @if ($item->img)
-                                        <img src="{{ asset('images/' . $item->img) }}" class="card-img-top"
+                                        <img src="{{ $item->img_url }}" class="card-img-top"
                                             style="height: 135px; object-fit: cover;">
                                     @else
                                         <div class="card-img-top d-flex align-items-center justify-content-center bg-success text-white text-uppercase fw-bold"

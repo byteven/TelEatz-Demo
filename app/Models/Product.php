@@ -48,5 +48,14 @@ class Product extends Model
         return $this->belongsTo(User::class, 'buyer_id');
     }
 
-
+    public function getImgUrlAttribute()
+    {
+        if (empty($this->img)) {
+            return null;
+        }
+        if (str_starts_with($this->img, 'data:') || str_starts_with($this->img, 'http://') || str_starts_with($this->img, 'https://')) {
+            return $this->img;
+        }
+        return asset('images/' . $this->img);
+    }
 }

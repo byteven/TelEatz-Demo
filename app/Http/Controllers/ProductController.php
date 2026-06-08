@@ -52,8 +52,7 @@ class ProductController extends Controller
 
     public function show($id)
     {
-        $product = Product::with('user', 'category')->findOrFail($id);
-        $product = Product::with(['reviews.buyer', 'reviews.order'])->findOrFail($id);
+        $product = Product::with(['user', 'category', 'reviews.buyer', 'reviews.order'])->findOrFail($id);
         return view('buyer.daftarmenu.show', compact('product'), ['title' => 'Detail Menu']);
     }
 }

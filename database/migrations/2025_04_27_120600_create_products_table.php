@@ -20,7 +20,7 @@ return new class extends Migration
             $table->boolean('is_available')->default(true);
             $table->integer('estimate')->nullable();
             $table->foreignId('category_id')->nullable()->references('id')->on('categories')->nullOnDelete();
-            $table->string('img')->nullable();
+            $table->longText('img')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

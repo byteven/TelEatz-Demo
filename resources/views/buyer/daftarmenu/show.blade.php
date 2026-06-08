@@ -21,7 +21,7 @@
                 <div class="card shadow-sm">
                     {{-- Gambar --}}
                     @if ($product->img)
-                        <img src="{{ asset('images/' . $product->img) }}" class="card-img-top" alt="{{ $product->nama }}"
+                        <img src="{{ $product->img_url }}" class="card-img-top" alt="{{ $product->nama_product }}"
                             style="height: 400px; object-fit: cover;">
                     @else
                         <div class="card-img-top d-flex align-items-center justify-content-center bg-secondary text-white text-uppercase fw-bold"
@@ -72,9 +72,9 @@
                         @forelse ($product->reviews as $review)
                             <div class="d-flex align-items-start gap-3 mb-4">
                                 {{-- Foto Profil --}}
-                                @if ($review->buyer && $review->buyer->profile_picture)
+                                @if ($review->buyer && $review->buyer->img)
                                     <img class="rounded-circle img-thumbnail shadow-sm"
-                                        src="{{ asset('storage/profile_pictures/' . $review->buyer->profile_picture) }}"
+                                        src="{{ $review->buyer->img_url }}"
                                         alt="Profil {{ $review->buyer->name }}"
                                         style="width: 50px; height: 50px; object-fit: cover; aspect-ratio: 1 / 1;">
                                 @else
