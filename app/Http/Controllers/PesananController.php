@@ -108,7 +108,7 @@ class PesananController extends Controller
 
         $pesanan = $pesanan->get();
 
-        return view('seller.Pesanan.Pesanan_seller', compact('pesanan', 'allStatus', 'allDineOptions', 'allPayment'));
+        return view('seller.Pesanan.pesanan_seller', compact('pesanan', 'allStatus', 'allDineOptions', 'allPayment'));
     }
 
     public function show($id)
@@ -154,7 +154,7 @@ class PesananController extends Controller
         // Ambil order berdasarkan ID dan eager-load orderItems beserta review untuk setiap item
         $order = Order::with('orderItems.review')->where('id', $id)->firstOrFail();
 
-        return view('seller.Pesanan.Pesanan_seller', compact('order'));
+        return view('seller.Pesanan.pesanan_seller', compact('order'));
     }
 
     public function exportPDF($id)
