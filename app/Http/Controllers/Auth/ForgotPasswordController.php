@@ -6,17 +6,42 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class ForgotPasswordController extends Controller
 {
 
     public function showRequestForm()
     {
+        if (Auth::check()) {
+            switch (Auth::user()->role) {
+                case 'admin':
+                    return redirect()->route('admin.dashboard');
+                case 'seller':
+                    return redirect()->route('seller.dashboard');
+                case 'buyer':
+                    return redirect()->route('buyer.dashboard');
+                default:
+                    return redirect()->route('login')->with('error', 'Role tidak dikenali.');
+            }
+        }
         return view('auth.forgot-password');
     }
 
     public function showResetForm($token)
     {
+        if (Auth::check()) {
+            switch (Auth::user()->role) {
+                case 'admin':
+                    return redirect()->route('admin.dashboard');
+                case 'seller':
+                    return redirect()->route('seller.dashboard');
+                case 'buyer':
+                    return redirect()->route('buyer.dashboard');
+                default:
+                    return redirect()->route('login')->with('error', 'Role tidak dikenali.');
+            }
+        }
         return view('auth.reset-password', ['token' => $token]);
     }
 

@@ -7,12 +7,26 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Rules\Recaptcha;
+use Illuminate\Support\Facades\Auth;
 
 
 class RegisterController extends Controller
 {
     public function showRegister()
     {
+        if (Auth::check()) {
+            switch (Auth::user()->role) {
+                case 'admin':
+                    return redirect()->route('admin.dashboard');
+                case 'seller':
+                    return redirect()->route('seller.dashboard');
+                case 'buyer':
+                    return redirect()->route('buyer.dashboard');
+                default:
+                    return redirect()->route('login')->with('error', 'Role tidak dikenali.');
+            }
+        }
+
         return view('auth.register');
     }
 
