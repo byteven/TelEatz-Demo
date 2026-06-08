@@ -325,3 +325,70 @@ body{
     border: 1px solid #23b6ff;
     color: #ffff;
 }
+
+.canvas-log-register {
+    height: 700px;
+}
+
+@media (max-width: 768px) {
+    body {
+        height: auto;
+        min-height: 100vh;
+        padding: 20px 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .canvas-log {
+        flex-direction: column;
+        width: 100%;
+        max-width: 450px;
+        height: auto;
+        min-height: unset;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        border-radius: 20px;
+        padding: 30px 20px;
+    }
+
+    .canvas-log-register {
+        height: auto;
+    }
+
+    .left-sec {
+        display: none !important;
+    }
+
+    .right-sec {
+        width: 100%;
+        height: auto;
+        padding: 0;
+        background-color: transparent;
+    }
+
+    .input-data {
+        width: 100%;
+        margin-top: 1.5rem;
+        gap: 0;
+        display: block;
+    }
+
+    .input-data form {
+        width: 100%;
+    }
+
+    .input-container {
+        width: 100%;
+        max-width: 100%;
+        margin: 1rem 0;
+    }
+
+    .button {
+        width: 100%;
+        margin-top: 2rem !important;
+    }
+
+    .submit {
+        width: 100%;
+    }
+}

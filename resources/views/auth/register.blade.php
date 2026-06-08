@@ -20,7 +20,7 @@
 @section('content')
     <!-- form login -->
 
-    <div class="canvas-log animate__animated animate__fadeIn" style="width: 900px; height: 700px;">
+    <div class="canvas-log canvas-log-register animate__animated animate__fadeIn">
         <div class="left-sec">
             <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
             <dotlottie-player src="https://lottie.host/f590e3bb-fa83-4f0a-9bcd-ea506a5b4a91/pEQ48RBjDJ.lottie"
