@@ -50,9 +50,9 @@
                     </div>
                     <p class="text-secondary text-center">Don't have an account? <a href="{{ route('register') }}">Sign
                             Up</a></p>
-                    <p class="text-secondary text-center mt-3 "><a href="{{ route('password.request') }}">Forgot
+                    <!-- <p class="text-secondary text-center mt-3 "><a href="{{ route('password.request') }}">Forgot
                             Password</a>
-                    </p>
+                    </p> -->
                 </form>
 
             </div>
