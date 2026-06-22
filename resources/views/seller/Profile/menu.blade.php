@@ -59,10 +59,6 @@ $title = 'Profil Saya';
                                             <input type="time" name="close_time" class="form-control" value="{{old('close_time', $profile->close_time)}}"placeholder="Format Ketik = 23:59">
                                         </div>
                                     </div>
-                                    <div class="mb-3">
-                                        <label class="form-label">Email</label>
-                                        <input type="email" name="email" class="form-control" value="{{$profile->email}}" placeholder=":00">
-                                    </div>
                                     <div class="text-center d-flex justify-content-between mx-5">
                                         <button type="submit" class="btn btn-primary w-50 mx-2 rounded-pill">Simpan</button>
                                         <button type="reset" class="btn btn-danger w-50 mx-2 rounded-pill">Reset</button>

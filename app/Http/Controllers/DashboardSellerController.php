@@ -21,14 +21,8 @@ class DashboardSellerController extends Controller
     {
         $makanan = Product::where('seller_id', auth::id())->count();
         $orderIds = Order::where('seller_id', auth()->id())->pluck('id');
-        $now = now()->format('H:i:s');
-
-        $isOpen = User::where('id', auth()->id())
-            ->whereTime('open_time', '<=', $now)
-            ->whereTime('close_time', '>=', $now)
-            ->exists();
-
-        $status = $isOpen ? 'Sedang Buka' : 'Sedang Tutup';
+        $user = auth()->user();
+        $status = $user->is_open ? 'Sedang Buka' : 'Sedang Tutup';
 
         $order = OrderItem::whereIn('order_id', $orderIds)->sum('quantity');
         $totalReviews = Review::whereIn('order_id', $orderIds)->count();
@@ -112,8 +106,7 @@ class DashboardSellerController extends Controller
             $status = 'Sedang Tutup';
         }
         $user->save();
-        $data = $this->getDashboardData();
 
-        return view('seller.dashboard', ['status' => $status], $data);
+        return redirect()->route('seller.dashboard')->with('success', $message);
     }
 }
