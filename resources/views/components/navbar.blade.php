@@ -98,9 +98,11 @@
                         {{ Auth::user()->email }}
                     </a>
                     <ul class="dropdown-menu">
+                        @if(Auth::check() && Auth::user()->role !== 'admin')
                         <li>
                             <a class="dropdown-item" href="{{ route('buyer.profile.profile_buyer') }}">Profil</a>
                         </li>
+                        @endif
                         <li>
                             <!-- Form logout tersembunyi -->
                             <form id="logout" action="{{ route('logout') }}" method="POST" style="display: none;">

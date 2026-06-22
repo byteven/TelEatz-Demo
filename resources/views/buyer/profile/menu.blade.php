@@ -27,11 +27,6 @@
                                         <input type="text" name="name" class="form-control"
                                             value="{{ $profile->name }}">
                                     </div>
-                                    <div class="mb-3">
-                                        <label class="form-label">Email</label>
-                                        <input type="email" name="email" class="form-control"
-                                            value="{{ $profile->email }}" placeholder=":00" readonly>
-                                    </div>
                                     <div class="text-center d-flex justify-content-between mx-5">
                                         <button type="submit"
                                             class="btn btn-primary w-50 mx-2 rounded-pill">Simpan</button>
